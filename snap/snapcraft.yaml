@@ -81,6 +81,28 @@ apps:
       - gsettings
       - removable-media
       - joystick
+
+  tux-paint-opt:
+    command-chain: ["snap/command-chain/alsa-launch"]
+    command: usr/local/bin/tuxpaint
+    environment:
+      # pulseaudio
+      LD_LIBRARY_PATH: ${SNAP}/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio
+    extensions: [gnome-3-38]
+    plugs:
+      - home
+      - audio-playback
+      - pulseaudio
+      - alsa
+      - desktop
+      - desktop-legacy
+      - wayland
+      - unity7
+      - x11
+      - opengl
+      - gsettings
+      - removable-media
+      - joystick
         
 layout:
   /usr/lib/$SNAPCRAFT_ARCH_TRIPLET/alsa-lib:
