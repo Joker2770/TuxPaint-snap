@@ -143,19 +143,19 @@ parts:
       - freeglut3
       - libglu1-mesa
     override-build: |
-      make -j $(nproc) tuxpaint DESTDIR=/build/tux-paint/parts/tux-paint/install
-      make -j $(nproc) magic-plugins DESTDIR=/build/tux-paint/parts/tux-paint/install
-      make -j $(nproc) tp-magic-config DESTDIR=/build/tux-paint/parts/tux-paint/install
+      make -j $(nproc) tuxpaint
+      make -j $(nproc) magic-plugins
+      make -j $(nproc) tp-magic-config
       mkdir -p ${SNAPCRAFT_PART_INSTALL}/usr/local/bin
       cp ./tuxpaint ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
-      sudo make install-bin
-      sudo make install-data
-      sudo make install-magic-plugins
-      sudo make install-magic-plugin-dev
-      sudo make install-default-config
-      sudo make install-example-stamps
-      sudo make install-example-starters
-      sudo make install-example-templates
-      sudo make install-icon
-      sudo make install-osk
-      sudo make install-im
+      sudo make install-bin DESTDIR=/build/tux-paint/parts/tux-paint/install
+      sudo make install-data DESTDIR=/build/tux-paint/parts/tux-paint/install
+      sudo make install-magic-plugins DESTDIR=/build/tux-paint/parts/tux-paint/install
+      sudo make install-magic-plugin-dev DESTDIR=/build/tux-paint/parts/tux-paint/install
+      sudo make install-default-config DESTDIR=/build/tux-paint/parts/tux-paint/install
+      sudo make install-example-stamps DESTDIR=/build/tux-paint/parts/tux-paint/install
+      sudo make install-example-starters DESTDIR=/build/tux-paint/parts/tux-paint/install
+      sudo make install-example-templates DESTDIR=/build/tux-paint/parts/tux-paint/install
+      sudo make install-icon DESTDIR=/build/tux-paint/parts/tux-paint/install
+      sudo make install-osk DESTDIR=/build/tux-paint/parts/tux-paint/install
+      sudo make install-im DESTDIR=/build/tux-paint/parts/tux-paint/install
