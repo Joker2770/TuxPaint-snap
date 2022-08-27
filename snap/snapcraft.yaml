@@ -157,4 +157,3 @@ parts:
       sudo make install-icon
       sudo make install-osk
       sudo make install-im
-      sudo make install-gettext
