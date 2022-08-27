@@ -39,7 +39,7 @@ description: |
 
 grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
-base: core18
+base: core20
 
 plugs: # plugs for theming, font settings, cursor and to use gtk3 file chooser
   gtk-3-themes:
@@ -121,6 +121,7 @@ parts:
       - librsvg2-dev
       - libfribidi-dev
       - libpaper-dev
+      - libimagequant-dev
     stage-packages:
       - libsdl1.2debian
       - libsdl-image1.2
@@ -133,6 +134,7 @@ parts:
       - librsvg2-common
       - libfribidi0
       - libpaper1
+      - libimagequant0
     override-build: |
       make -j $(nproc) release
       make -j $(nproc) tuxpaint
