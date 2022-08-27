@@ -40,6 +40,10 @@ description: |
 grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
 base: core20
+architectures:
+  - build-on: amd64
+  - build-on: armhf
+  - build-on: arm64
 
 plugs: # plugs for theming, font settings, cursor and to use gtk3 file chooser
   gtk-3-themes:
@@ -140,7 +144,6 @@ parts:
       make -j $(nproc) tuxpaint
       sudo make install-bin
       sudo make install-data
-      sudo make install-magic-plugins
       sudo make install-example-stamps
       sudo make install-icon
       sudo make install-osk
