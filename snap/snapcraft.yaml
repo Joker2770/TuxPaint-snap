@@ -144,7 +144,6 @@ parts:
       - libglu1-mesa
     override-build: |
       make -j $(nproc) tuxpaint
-      make -j $(nproc) translations
       make -j $(nproc) magic-plugins
       make -j $(nproc) tp-magic-config
       sudo make install-bin
@@ -158,4 +157,3 @@ parts:
       sudo make install-icon
       sudo make install-osk
       sudo make install-im
-      sudo make install-gettext
