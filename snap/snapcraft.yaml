@@ -116,6 +116,7 @@ parts:
       - libsdl-pango-dev
       - libsdl2-ttf-dev
       - libsdl-mixer1.2-dev
+      - librsvg2-dev
     stage-packages:
       - libsdl1.2debian
       - libsdl-image1.2
@@ -123,6 +124,8 @@ parts:
       - libsdl2-ttf-2.0-0
       - libsdl-mixer1.2
       - libpulse0
+      - librsvg2-2
+      - librsvg2-common
     override-build: |
       make -j $(nproc) release
       sudo make install-bin
