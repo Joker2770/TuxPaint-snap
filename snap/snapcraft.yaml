@@ -139,10 +139,13 @@ parts:
       - libfribidi0
       - libpaper1
       - libimagequant0
+      - freeglut3
+      - libglu1-mesa
     override-build: |
-      make -j $(nproc) release
       make -j $(nproc) tuxpaint
+      make -j $(nproc) translations
       make -j $(nproc) magic-plugins
+      make -j $(nproc) tp-magic-config
       sudo make install-bin
       sudo make install-data
       sudo make install-magic-plugins
