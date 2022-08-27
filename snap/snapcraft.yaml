@@ -118,7 +118,6 @@ parts:
       - libsdl-mixer1.2-dev
       - librsvg2-dev
       - libfribidi-dev
-      - libimagequant-dev
     stage-packages:
       - libsdl1.2debian
       - libsdl-image1.2
@@ -129,7 +128,6 @@ parts:
       - librsvg2-2
       - librsvg2-common
       - libfribidi0
-      - libimagequant0
     override-build: |
       make -j $(nproc) release
       make -j $(nproc) tuxpaint
@@ -139,3 +137,5 @@ parts:
       sudo make install-example-stamps
       sudo make install-icon
       sudo make install-osk
+      sudo make install-im
+      sudo make install-gettext
