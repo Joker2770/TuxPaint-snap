@@ -117,6 +117,7 @@ parts:
       - libsdl-pango-dev
       - libsdl-ttf2.0-dev
       - libsdl-mixer1.2-dev
+      - libsdl-gfx1.2-dev
       - librsvg2-dev
       - libfribidi-dev
     stage-packages:
@@ -125,6 +126,7 @@ parts:
       - libsdl-pango1
       - libsdl-ttf2.0-0
       - libsdl-mixer1.2
+      - libsdl-gfx1.2-5
       - libpulse0
       - librsvg2-2
       - librsvg2-common
