@@ -62,7 +62,7 @@ plugs: # plugs for theming, font settings, cursor and to use gtk3 file chooser
 apps:
   tux-paint:
     command-chain: ["snap/command-chain/alsa-launch"]
-    command: usr/local/bin/tuxpaint
+    command: tuxpaint
     environment:
       # pulseaudio
       LD_LIBRARY_PATH: ${SNAP}/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio
@@ -145,11 +145,14 @@ parts:
       make -j $(nproc) tuxpaint
       make -j $(nproc) magic-plugins
       make -j $(nproc) tp-magic-config
-      mkdir -p ${SNAPCRAFT_PART_INSTALL}/usr/local/bin
       sudo make install-bin
       sudo make install-data
       sudo make install-magic-plugins
+      sudo make install-magic-plugin-dev
+      sudo make install-default-config
       sudo make install-example-stamps
+      sudo make install-example-starters
+      sudo make install-example-templates
       sudo make install-icon
       sudo make install-osk
       sudo make install-im
