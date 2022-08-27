@@ -142,8 +142,10 @@ parts:
     override-build: |
       make -j $(nproc) release
       make -j $(nproc) tuxpaint
+      make -j $(nproc) magic-plugins
       sudo make install-bin
       sudo make install-data
+      sudo make install-magic-plugins
       sudo make install-example-stamps
       sudo make install-icon
       sudo make install-osk
