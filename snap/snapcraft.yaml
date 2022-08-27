@@ -116,6 +116,7 @@ parts:
       - gcc
       - make
       - gperf
+      - gettext
       - libsdl1.2-dev
       - libsdl-image1.2-dev
       - libsdl-pango-dev
