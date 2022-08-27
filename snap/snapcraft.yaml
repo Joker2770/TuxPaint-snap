@@ -62,7 +62,7 @@ plugs: # plugs for theming, font settings, cursor and to use gtk3 file chooser
 apps:
   tux-paint:
     command-chain: ["snap/command-chain/alsa-launch"]
-    command: ls
+    command: usr/local/bin/tuxpaint
     environment:
       # pulseaudio
       LD_LIBRARY_PATH: ${SNAP}/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio
