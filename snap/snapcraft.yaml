@@ -62,7 +62,7 @@ plugs: # plugs for theming, font settings, cursor and to use gtk3 file chooser
 apps:
   tux-paint:
     command-chain: ["snap/command-chain/alsa-launch"]
-    command: usr/local/bin/tuxpaint
+    command: usr/local/bin/launcher.sh
     environment:
       # pulseaudio
       LD_LIBRARY_PATH: ${SNAP}/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio
@@ -80,6 +80,7 @@ apps:
       - opengl
       - gsettings
       - removable-media
+      - joystick
         
 layout:
   /usr/lib/$SNAPCRAFT_ARCH_TRIPLET/alsa-lib:
@@ -146,8 +147,6 @@ parts:
       make -j $(nproc) tuxpaint
       make -j $(nproc) magic-plugins
       make -j $(nproc) tp-magic-config
-      mkdir -p ${SNAPCRAFT_PART_INSTALL}/usr/local/bin
-      cp ./tuxpaint ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
       sudo make install-bin DESTDIR=/build/tux-paint/parts/tux-paint/install
       sudo make install-data DESTDIR=/build/tux-paint/parts/tux-paint/install
       sudo make install-magic-plugins DESTDIR=/build/tux-paint/parts/tux-paint/install
@@ -159,3 +158,17 @@ parts:
       sudo make install-icon DESTDIR=/build/tux-paint/parts/tux-paint/install
       sudo make install-osk DESTDIR=/build/tux-paint/parts/tux-paint/install
       sudo make install-im DESTDIR=/build/tux-paint/parts/tux-paint/install
+
+  include-launcher:
+    after: [tux-paint]
+    plugin: dump
+    source: "https://github.com/Joker2770/TuxPaint-snap.git"
+    source-depth: 1
+    source-branch: main
+    source-type: git
+    organize:
+      "launcher.sh" : usr/local/bin/
+    prime:
+      - -README*
+      - -LICENSE
+      - -snap
