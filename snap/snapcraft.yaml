@@ -146,6 +146,8 @@ parts:
       make -j $(nproc) tuxpaint
       make -j $(nproc) magic-plugins
       make -j $(nproc) tp-magic-config
+      mkdir -p ${SNAPCRAFT_PART_INSTALL}/usr/local/bin
+      cp ./tuxpaint ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
       sudo make install-bin
       sudo make install-data
       sudo make install-magic-plugins
