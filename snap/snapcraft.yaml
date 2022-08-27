@@ -117,6 +117,7 @@ parts:
       - libsdl2-ttf-dev
       - libsdl-mixer1.2-dev
       - librsvg2-dev
+      - libfribidi-dev
     stage-packages:
       - libsdl1.2debian
       - libsdl-image1.2
@@ -126,6 +127,7 @@ parts:
       - libpulse0
       - librsvg2-2
       - librsvg2-common
+      - libfribidi0
     override-build: |
       make -j $(nproc) release
       sudo make install-bin
