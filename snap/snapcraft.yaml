@@ -143,9 +143,9 @@ parts:
       - freeglut3
       - libglu1-mesa
     override-build: |
-      make -j $(nproc) tuxpaint
-      make -j $(nproc) magic-plugins
-      make -j $(nproc) tp-magic-config
+      make -j $(nproc) tuxpaint DESTDIR=/build/tux-paint/parts/tux-paint/install
+      make -j $(nproc) magic-plugins DESTDIR=/build/tux-paint/parts/tux-paint/install
+      make -j $(nproc) tp-magic-config DESTDIR=/build/tux-paint/parts/tux-paint/install
       mkdir -p ${SNAPCRAFT_PART_INSTALL}/usr/local/bin
       cp ./tuxpaint ${SNAPCRAFT_PART_INSTALL}/usr/local/bin/
       sudo make install-bin
