@@ -150,6 +150,8 @@ parts:
       - libfribidi-dev
       - libpaper-dev
       - libimagequant-dev
+      - libpng-dev
+      - libharfbuzz-dev
     stage-packages:
       - libsdl1.2debian
       - libsdl-image1.2
@@ -165,6 +167,9 @@ parts:
       - libimagequant0
       - freeglut3
       - libglu1-mesa
+      - libpng16-16
+      - libharfbuzz0b
+      - libharfbuzz-gobject0
     override-build: |
       make -j $(nproc) tuxpaint
       make -j $(nproc) magic-plugins
