@@ -119,6 +119,8 @@ layout:
     bind: $SNAP/usr/local/etc/tuxpaint
   /usr/local/include/tuxpaint:
     bind: $SNAP/usr/local/include/tuxpaint
+  /usr/share/thumbnailers:
+    bind: $SNAP/usr/share/thumbnailers
   /usr/share/alsa:
     bind: $SNAP/usr/share/alsa
   /etc/fonts:
