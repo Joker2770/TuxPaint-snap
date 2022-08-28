@@ -107,10 +107,18 @@ apps:
 layout:
   /usr/lib/$SNAPCRAFT_ARCH_TRIPLET/alsa-lib:
     bind: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/alsa-lib
+  /usr/local/lib/tuxpaint/plugins:
+    bind: $SNAP/usr/local/lib/tuxpaint/plugins
+  /usr/local/share/doc:
+    bind: $SNAP/usr/local/share/doc
   /usr/local/share/locale:
     bind: $SNAP/usr/local/share/locale
   /usr/local/share/tuxpaint:
     bind: $SNAP/usr/local/share/tuxpaint
+  /usr/local/etc/tuxpaint:
+    bind: $SNAP/usr/local/etc/tuxpaint
+  /usr/local/include/tuxpaint:
+    bind: $SNAP/usr/local/include/tuxpaint
   /usr/share/alsa:
     bind: $SNAP/usr/share/alsa
   /etc/fonts:
