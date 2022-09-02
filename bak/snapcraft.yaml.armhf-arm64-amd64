@@ -184,17 +184,17 @@ parts:
       make -j $(nproc) tuxpaint
       make -j $(nproc) magic-plugins
       make -j $(nproc) tp-magic-config
-      sudo make install-bin DESTDIR=/build/tux-paint/parts/tux-paint/install
-      sudo make install-data DESTDIR=/build/tux-paint/parts/tux-paint/install
-      sudo make install-magic-plugins DESTDIR=/build/tux-paint/parts/tux-paint/install
-      sudo make install-magic-plugin-dev DESTDIR=/build/tux-paint/parts/tux-paint/install
-      sudo make install-default-config DESTDIR=/build/tux-paint/parts/tux-paint/install
-      sudo make install-example-stamps DESTDIR=/build/tux-paint/parts/tux-paint/install
-      sudo make install-example-starters DESTDIR=/build/tux-paint/parts/tux-paint/install
-      sudo make install-example-templates DESTDIR=/build/tux-paint/parts/tux-paint/install
-      sudo make install-icon DESTDIR=/build/tux-paint/parts/tux-paint/install
-      sudo make install-osk DESTDIR=/build/tux-paint/parts/tux-paint/install
-      sudo make install-im DESTDIR=/build/tux-paint/parts/tux-paint/install
+      sudo make install-bin DESTDIR=${SNAPCRAFT_PART_INSTALL}
+      sudo make install-data DESTDIR=${SNAPCRAFT_PART_INSTALL}
+      sudo make install-magic-plugins DESTDIR=${SNAPCRAFT_PART_INSTALL}
+      sudo make install-magic-plugin-dev DESTDIR=${SNAPCRAFT_PART_INSTALL}
+      sudo make install-default-config DESTDIR=${SNAPCRAFT_PART_INSTALL}
+      sudo make install-example-stamps DESTDIR=${SNAPCRAFT_PART_INSTALL}
+      sudo make install-example-starters DESTDIR=${SNAPCRAFT_PART_INSTALL}
+      sudo make install-example-templates DESTDIR=${SNAPCRAFT_PART_INSTALL}
+      sudo make install-icon DESTDIR=${SNAPCRAFT_PART_INSTALL}
+      sudo make install-osk DESTDIR=${SNAPCRAFT_PART_INSTALL}
+      sudo make install-im DESTDIR=${SNAPCRAFT_PART_INSTALL}
 
   tuxpaint-stamps:
     after: [tux-paint]
@@ -207,23 +207,24 @@ parts:
       - gcc
       - make
     override-build: |
-      ./install-stamps.sh animals /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
-      ./install-stamps.sh clothes /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
-      ./install-stamps.sh food /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
-      ./install-stamps.sh hobbies /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
-      ./install-stamps.sh household /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
-      ./install-stamps.sh medical /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
-      ./install-stamps.sh military /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
-      ./install-stamps.sh naturalforces /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
-      ./install-stamps.sh people /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
-      ./install-stamps.sh plants /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
-      ./install-stamps.sh seasonal /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
-      ./install-stamps.sh space /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
-      ./install-stamps.sh town /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
-      ./install-stamps.sh sports /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
-      ./install-stamps.sh symbols /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
-      ./install-stamps.sh vehicles /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
-      ./fix-permissions.sh /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
+      mkdir -p ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
+      ./install-stamps.sh animals ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
+      ./install-stamps.sh clothes ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
+      ./install-stamps.sh food ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
+      ./install-stamps.sh hobbies ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
+      ./install-stamps.sh household ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
+      ./install-stamps.sh medical ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
+      ./install-stamps.sh military ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
+      ./install-stamps.sh naturalforces ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
+      ./install-stamps.sh people ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
+      ./install-stamps.sh plants ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
+      ./install-stamps.sh seasonal ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
+      ./install-stamps.sh space ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
+      ./install-stamps.sh town ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
+      ./install-stamps.sh sports ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
+      ./install-stamps.sh symbols ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
+      ./install-stamps.sh vehicles ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
+      ./fix-permissions.sh ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
 
   include-launcher:
     after: [tuxpaint-stamps]
