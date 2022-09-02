@@ -207,7 +207,23 @@ parts:
       - gcc
       - make
     override-build: |
-      sudo make install-all DESTDIR=/build/tuxpaint-stamps/parts/tuxpaint-stamps/install
+      ./install-stamps.sh animals /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
+      ./install-stamps.sh clothes /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
+      ./install-stamps.sh food /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
+      ./install-stamps.sh hobbies /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
+      ./install-stamps.sh household /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
+      ./install-stamps.sh medical /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
+      ./install-stamps.sh military /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
+      ./install-stamps.sh naturalforces /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
+      ./install-stamps.sh people /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
+      ./install-stamps.sh plants /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
+      ./install-stamps.sh seasonal /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
+      ./install-stamps.sh space /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
+      ./install-stamps.sh town /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
+      ./install-stamps.sh sports /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
+      ./install-stamps.sh symbols /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
+      ./install-stamps.sh vehicles /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
+      ./fix-permissions.sh /build/tuxpaint-stamps/parts/tuxpaint-stamps/install/usr/local/share/tuxpaint/
 
   include-launcher:
     after: [tuxpaint-stamps]
