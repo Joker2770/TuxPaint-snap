@@ -205,23 +205,23 @@ parts:
       - make
     override-build: |
       mkdir -p ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
-      ./install-stamps.sh animals ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
-      ./install-stamps.sh clothes ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
-      ./install-stamps.sh food ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
-      ./install-stamps.sh hobbies ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
-      ./install-stamps.sh household ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
-      ./install-stamps.sh medical ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
-      ./install-stamps.sh military ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
-      ./install-stamps.sh naturalforces ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
-      ./install-stamps.sh people ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
-      ./install-stamps.sh plants ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
-      ./install-stamps.sh seasonal ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
-      ./install-stamps.sh space ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
-      ./install-stamps.sh town ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
-      ./install-stamps.sh sports ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
-      ./install-stamps.sh symbols ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
-      ./install-stamps.sh vehicles ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
-      ./fix-permissions.sh ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint
+      ./install-stamps.sh animals ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint/
+      ./install-stamps.sh clothes ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint/
+      ./install-stamps.sh food ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint/
+      ./install-stamps.sh hobbies ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint/
+      ./install-stamps.sh household ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint/
+      ./install-stamps.sh medical ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint/
+      ./install-stamps.sh military ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint/
+      ./install-stamps.sh naturalforces ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint/
+      ./install-stamps.sh people ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint/
+      ./install-stamps.sh plants ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint/
+      ./install-stamps.sh seasonal ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint/
+      ./install-stamps.sh space ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint/
+      ./install-stamps.sh town ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint/
+      ./install-stamps.sh sports ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint/
+      ./install-stamps.sh symbols ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint/
+      ./install-stamps.sh vehicles ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint/
+      ./fix-permissions.sh ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint/
 
   include-launcher:
     after: [tuxpaint-stamps]
