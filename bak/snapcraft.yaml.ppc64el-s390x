@@ -193,8 +193,21 @@ parts:
       sudo make install-osk DESTDIR=/build/tux-paint/parts/tux-paint/install
       sudo make install-im DESTDIR=/build/tux-paint/parts/tux-paint/install
 
-  include-launcher:
+  tuxpaint-stamps:
     after: [tux-paint]
+    plugin: make
+    source: "https://git.code.sf.net/p/tuxpaint/tuxpaint-stamps"
+    source-depth: 1
+    source-branch: master
+    source-type: git
+    build-packages:
+      - gcc
+      - make
+    override-build: |
+      sudo make install-all DESTDIR=/build/tuxpaint-stamps/parts/tuxpaint-stamps/install
+
+  include-launcher:
+    after: [tuxpaint-stamps]
     plugin: dump
     source: "https://github.com/Joker2770/TuxPaint-snap.git"
     source-depth: 1
