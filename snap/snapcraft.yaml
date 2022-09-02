@@ -41,8 +41,9 @@ grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
 base: core20
 architectures:
-  - build-on: ppc64el
-  - build-on: s390x
+  - build-on: amd64
+  - build-on: armhf
+  - build-on: arm64
 
 plugs: # plugs for theming, font settings, cursor and to use gtk3 file chooser
   gtk-3-themes:
@@ -65,6 +66,7 @@ apps:
     environment:
       # pulseaudio
       LD_LIBRARY_PATH: ${SNAP}/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio
+    extensions: [gnome-3-38]
     plugs:
       - home
       - audio-playback
@@ -86,6 +88,7 @@ apps:
     environment:
       # pulseaudio
       LD_LIBRARY_PATH: ${SNAP}/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio
+    extensions: [gnome-3-38]
     plugs:
       - home
       - audio-playback
