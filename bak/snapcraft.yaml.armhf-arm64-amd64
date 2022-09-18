@@ -35,7 +35,7 @@ description: |
 
   Tux Paint is available for Windows, macOS, Android, Linux, & Haiku operating systems, among others.
 
-  _More build details: https://github.com/Joker2770/TuxPaint-snap _
+  _More build details: https://github.com/Joker2770/TuxPaint-snap_
 
 grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
@@ -64,8 +64,7 @@ apps:
     command-chain: ["snap/command-chain/alsa-launch"]
     command: usr/local/bin/launcher.sh
     environment:
-      # pulseaudio
-      LD_LIBRARY_PATH: ${SNAP}/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio
+      LD_LIBRARY_PATH: $LD_LIBRARY_PATH:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio/
     extensions: [gnome-3-38]
     plugs:
       - home
@@ -86,8 +85,7 @@ apps:
     command-chain: ["snap/command-chain/alsa-launch"]
     command: usr/local/bin/tuxpaint
     environment:
-      # pulseaudio
-      LD_LIBRARY_PATH: ${SNAP}/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio
+      LD_LIBRARY_PATH: $LD_LIBRARY_PATH:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio/
     extensions: [gnome-3-38]
     plugs:
       - home
@@ -239,6 +237,7 @@ parts:
       - -README*
       - -LICENSE
       - -snap
+      - -bak
     override-build: |
       snapcraftctl build
       chmod +x launcher.sh

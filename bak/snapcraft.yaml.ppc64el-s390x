@@ -35,7 +35,7 @@ description: |
 
   Tux Paint is available for Windows, macOS, Android, Linux, & Haiku operating systems, among others.
 
-  _More build details: https://github.com/Joker2770/TuxPaint-snap _
+  _More build details: https://github.com/Joker2770/TuxPaint-snap_
 
 grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
@@ -60,11 +60,10 @@ plugs: # plugs for theming, font settings, cursor and to use gtk3 file chooser
   
 apps:
   tux-paint:
-    command-chain: ["snap/command-chain/alsa-launch"]
+    command-chain: ["snap/command-chain/alsa-launch", "bin/desktop-launch"]
     command: usr/local/bin/launcher.sh
     environment:
-      # pulseaudio
-      LD_LIBRARY_PATH: ${SNAP}/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio
+      LD_LIBRARY_PATH: $LD_LIBRARY_PATH:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio/
     plugs:
       - home
       - audio-playback
@@ -81,11 +80,10 @@ apps:
       - joystick
 
   tux-paint-opt:
-    command-chain: ["snap/command-chain/alsa-launch"]
+    command-chain: ["snap/command-chain/alsa-launch", "bin/desktop-launch"]
     command: usr/local/bin/tuxpaint
     environment:
-      # pulseaudio
-      LD_LIBRARY_PATH: ${SNAP}/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio
+      LD_LIBRARY_PATH: $LD_LIBRARY_PATH:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio/
     plugs:
       - home
       - audio-playback
@@ -124,7 +122,17 @@ layout:
     bind: $SNAP/etc/fonts
     
 parts:
+  desktop-glib-only:
+    source: https://github.com/ubuntu/snapcraft-desktop-helpers.git
+    source-subdir: glib-only
+    plugin: make
+    build-packages:
+      - libglib2.0-dev
+    stage-packages:
+      - libglib2.0-bin
+
   alsa-mixin:
+    after: [desktop-glib-only]
     plugin: dump
     source: https://github.com/diddlesnaps/snapcraft-alsa.git
     source-subdir: snapcraft-assets
@@ -236,6 +244,7 @@ parts:
       - -README*
       - -LICENSE
       - -snap
+      - -bak
     override-build: |
       snapcraftctl build
       chmod +x launcher.sh
