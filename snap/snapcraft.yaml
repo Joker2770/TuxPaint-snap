@@ -41,9 +41,8 @@ grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
 base: core20
 architectures:
-  - build-on: amd64
-  - build-on: armhf
-  - build-on: arm64
+  - build-on: ppc64el
+  - build-on: s390x
 
 plugs: # plugs for theming, font settings, cursor and to use gtk3 file chooser
   gtk-3-themes:
@@ -61,11 +60,10 @@ plugs: # plugs for theming, font settings, cursor and to use gtk3 file chooser
   
 apps:
   tux-paint:
-    command-chain: ["snap/command-chain/alsa-launch"]
+    command-chain: ["snap/command-chain/alsa-launch", "bin/desktop-launch"]
     command: usr/local/bin/launcher.sh
     environment:
       LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio/
-    extensions: [gnome-3-38]
     plugs:
       - home
       - audio-playback
@@ -82,11 +80,10 @@ apps:
       - joystick
 
   tux-paint-opt:
-    command-chain: ["snap/command-chain/alsa-launch"]
+    command-chain: ["snap/command-chain/alsa-launch", "bin/desktop-launch"]
     command: usr/local/bin/tuxpaint
     environment:
       LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio/
-    extensions: [gnome-3-38]
     plugs:
       - home
       - audio-playback
@@ -125,7 +122,17 @@ layout:
     bind: $SNAP/etc/fonts
     
 parts:
+  desktop-glib-only:
+    source: https://github.com/ubuntu/snapcraft-desktop-helpers.git
+    source-subdir: glib-only
+    plugin: make
+    build-packages:
+      - libglib2.0-dev
+    stage-packages:
+      - libglib2.0-bin
+
   alsa-mixin:
+    after: [desktop-glib-only]
     plugin: dump
     source: https://github.com/diddlesnaps/snapcraft-alsa.git
     source-subdir: snapcraft-assets
@@ -182,6 +189,7 @@ parts:
       make -j $(nproc) magic-plugins
       make -j $(nproc) tp-magic-config
       make -j $(nproc) thumb-starters
+      make -j $(nproc) translations
       sudo make install-bin DESTDIR=${SNAPCRAFT_PART_INSTALL}
       sudo make install-data DESTDIR=${SNAPCRAFT_PART_INSTALL}
       sudo make install-magic-plugins DESTDIR=${SNAPCRAFT_PART_INSTALL}
@@ -191,6 +199,7 @@ parts:
       sudo make install-example-stamps DESTDIR=${SNAPCRAFT_PART_INSTALL}
       sudo make install-example-starters DESTDIR=${SNAPCRAFT_PART_INSTALL}
       sudo make install-example-templates DESTDIR=${SNAPCRAFT_PART_INSTALL}
+      sudo make install-gettext DESTDIR=${SNAPCRAFT_PART_INSTALL}
       sudo make install-icon DESTDIR=${SNAPCRAFT_PART_INSTALL}
       sudo make install-osk DESTDIR=${SNAPCRAFT_PART_INSTALL}
       sudo make install-im DESTDIR=${SNAPCRAFT_PART_INSTALL}
