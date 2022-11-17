@@ -182,7 +182,6 @@ parts:
       make -j $(nproc) magic-plugins
       make -j $(nproc) tp-magic-config
       make -j $(nproc) thumb-starters
-      make -j $(nproc) translations
       sudo make install-bin DESTDIR=${SNAPCRAFT_PART_INSTALL}
       sudo make install-data DESTDIR=${SNAPCRAFT_PART_INSTALL}
       sudo make install-magic-plugins DESTDIR=${SNAPCRAFT_PART_INSTALL}
