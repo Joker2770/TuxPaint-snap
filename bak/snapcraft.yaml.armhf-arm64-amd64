@@ -191,7 +191,6 @@ parts:
       sudo make install-example-stamps DESTDIR=${SNAPCRAFT_PART_INSTALL}
       sudo make install-example-starters DESTDIR=${SNAPCRAFT_PART_INSTALL}
       sudo make install-example-templates DESTDIR=${SNAPCRAFT_PART_INSTALL}
-      sudo make install-gettext DESTDIR=${SNAPCRAFT_PART_INSTALL}
       sudo make install-icon DESTDIR=${SNAPCRAFT_PART_INSTALL}
       sudo make install-osk DESTDIR=${SNAPCRAFT_PART_INSTALL}
       sudo make install-im DESTDIR=${SNAPCRAFT_PART_INSTALL}
