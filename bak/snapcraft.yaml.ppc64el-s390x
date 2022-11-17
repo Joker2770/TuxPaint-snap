@@ -155,6 +155,7 @@ parts:
       - make
       - gperf
       - gettext
+      - imagemagick
       - libsdl2-dev
       - libsdl2-image-dev
       - libsdl2-ttf-dev
@@ -187,10 +188,12 @@ parts:
       make -j $(nproc) tuxpaint
       make -j $(nproc) magic-plugins
       make -j $(nproc) tp-magic-config
+      make -j $(nproc) thumb-starters
       sudo make install-bin DESTDIR=${SNAPCRAFT_PART_INSTALL}
       sudo make install-data DESTDIR=${SNAPCRAFT_PART_INSTALL}
       sudo make install-magic-plugins DESTDIR=${SNAPCRAFT_PART_INSTALL}
       sudo make install-magic-plugin-dev DESTDIR=${SNAPCRAFT_PART_INSTALL}
+      sudo make install-thumb-starters DESTDIR=${SNAPCRAFT_PART_INSTALL}
       sudo make install-default-config DESTDIR=${SNAPCRAFT_PART_INSTALL}
       sudo make install-example-stamps DESTDIR=${SNAPCRAFT_PART_INSTALL}
       sudo make install-example-starters DESTDIR=${SNAPCRAFT_PART_INSTALL}
