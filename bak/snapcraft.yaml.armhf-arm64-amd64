@@ -136,8 +136,24 @@ parts:
       - libasound2-plugins
       - yad
 
-  tux-paint:
+  sdl2-pango:
     after: [alsa-mixin]
+    plugin: autotools
+    source: https://github.com/markuskimius/SDL2_Pango.git
+    source-depth: 1
+    source-branch: master
+    source-type: git
+    build-packages:
+      - gcc
+      - build-essential
+      - automake
+      - make
+      - libpango1.0-dev
+      - libfreetype-dev
+      - libsdl2-dev
+
+  tux-paint:
+    after: [sdl2-pango]
     plugin: make
     source: "https://git.code.sf.net/p/tuxpaint/tuxpaint"
     source-depth: 1
