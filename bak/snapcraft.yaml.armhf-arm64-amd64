@@ -151,6 +151,9 @@ parts:
       - libpango1.0-dev
       - libfreetype-dev
       - libsdl2-dev
+    stage-packages:
+      - libsdl2-2.0-0
+      - libxss1
 
   tux-paint:
     after: [sdl2-pango]
