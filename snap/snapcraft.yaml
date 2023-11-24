@@ -242,7 +242,6 @@ parts:
       ./install-stamps.sh sports ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint/
       ./install-stamps.sh symbols ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint/
       ./install-stamps.sh vehicles ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint/
-      ./fix-permissions.sh ${SNAPCRAFT_PART_INSTALL}/usr/local/share/tuxpaint/
 
   include-launcher:
     after: [tuxpaint-stamps]
