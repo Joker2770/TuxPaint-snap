@@ -167,7 +167,6 @@ parts:
     plugin: make
     source: "https://git.code.sf.net/p/tuxpaint/tuxpaint"
     source-depth: 1
-    source-branch: master
     source-type: git
     source-tag: "tuxpaint-0_9_32-2024-01-29"
     build-packages:
