@@ -161,7 +161,7 @@ parts:
     source: "https://git.code.sf.net/p/tuxpaint/tuxpaint"
     source-depth: 1
     source-type: git
-    source-tag: "tuxpaint-0_9_33-rc1-2024-07-06"
+    source-tag: "tuxpaint-0_9_33-2024-07-17"
     build-packages:
       - gcc
       - make
